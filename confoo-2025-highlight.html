@@ -1,0 +1,474 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>ConFoo 2025 Highlights</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f5f7fa;
+            color: #333;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        header {
+            background-color: #2c3e50;
+            color: white;
+            padding: 20px;
+            text-align: center;
+            border-radius: 5px 5px 0 0;
+        }
+
+        h1 {
+            margin: 0;
+            font-size: 32px;
+        }
+
+        .day-container {
+            margin-top: 30px;
+        }
+
+        .day-header {
+            background-color: #34495e;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            cursor: pointer;
+        }
+
+        .day-content {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            padding: 20px 0;
+        }
+
+        .session-card {
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            flex: 1 1 350px;
+            max-width: 100%;
+            position: relative;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .session-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .session-title {
+            font-size: 18px;
+            font-weight: bold;
+            margin-top: 0;
+            margin-bottom: 5px;
+            color: #2c3e50;
+        }
+
+        .session-author {
+            font-style: italic;
+            color: #7f8c8d;
+            margin-bottom: 15px;
+        }
+
+        .session-content {
+            margin-bottom: 15px;
+        }
+
+        .tags-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 5px;
+            margin-top: 10px;
+        }
+
+        .tag {
+            background-color: #3498db;
+            color: white;
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-size: 12px;
+        }
+
+        .references {
+            margin-top: 15px;
+            font-size: 14px;
+        }
+
+        .references a {
+            color: #3498db;
+            text-decoration: none;
+        }
+
+        .references a:hover {
+            text-decoration: underline;
+        }
+
+        .filter-container {
+            margin: 20px 0;
+            padding: 15px;
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .filter-title {
+            margin-top: 0;
+            margin-bottom: 10px;
+            font-size: 18px;
+        }
+
+        .filter-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .filter-tag {
+            background-color: #ecf0f1;
+            color: #2c3e50;
+            padding: 5px 10px;
+            border-radius: 20px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: background-color 0.2s;
+        }
+
+        .filter-tag.active {
+            background-color: #3498db;
+            color: white;
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        .summary {
+            margin-top: 20px;
+            font-style: italic;
+            color: #7f8c8d;
+        }
+
+        .toggle-icon {
+            font-size: 20px;
+        }
+
+        @media (max-width: 768px) {
+            .session-card {
+                flex: 1 1 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <header>
+        <h1>ConFoo 2025 Highlights</h1>
+    </header>
+
+    <div class="filter-container">
+        <h3 class="filter-title">Filter by Tag:</h3>
+        <div class="filter-tags" id="tagFilters">
+            <div class="filter-tag active" data-tag="all">All</div>
+            <div class="filter-tag" data-tag="AI">#AI</div>
+            <div class="filter-tag" data-tag="WebDev">#WebDev</div>
+            <div class="filter-tag" data-tag="Architecture">#Architecture</div>
+            <div class="filter-tag" data-tag="DesignPatterns">#DesignPatterns</div>
+            <div class="filter-tag" data-tag="React">#React</div>
+        </div>
+    </div>
+
+    <div class="day-container">
+        <div class="day-header" id="wednesdayHeader">
+            <h2>Mercredi</h2>
+            <span class="toggle-icon">▼</span>
+        </div>
+        <div class="day-content" id="wednesdayContent">
+            <div class="session-card" data-tags="GitHub,Copilot,Extensions,DevTools,AI">
+                <h3 class="session-title">Let's create a GitHub Copilot Extension</h3>
+                <p class="session-author">Par Nick Taylor</p>
+                <div class="session-content">
+                    <p><strong>TLDR:</strong> Démo sommaire expliquant comment configurer une extension Github Copilot. C-à-d: Comment intercepter avec un hook les requêtes faites à copilot et manipuler les prompts, les reléguer à d'autres modèles et appeler d'autres services.</p>
+                </div>
+                <div class="references">
+                    <p><strong>Références:</strong></p>
+                    <ul>
+                        <li><a href="https://docs.github.com/en/copilot/building-copilot-extensions/about-building-copilot-extensions" target="_blank">Documentation extensions pour Copilot</a></li>
+                        <li><a href="https://confoo.ca/fr/2025/session/let-s-create-a-github-copilot-extension" target="_blank">Fiche du Confoo</a></li>
+                    </ul>
+                </div>
+                <div class="tags-container">
+                    <span class="tag">#GitHub</span>
+                    <span class="tag">#Copilot</span>
+                    <span class="tag">#Extensions</span>
+                    <span class="tag">#DevTools</span>
+                    <span class="tag">#AI</span>
+                </div>
+            </div>
+
+            <div class="session-card" data-tags="WebAssembly,WebDev,CrossPlatform">
+                <h3 class="session-title">WebAssembly, Extend Anything with Everything, Everywhere!</h3>
+                <p class="session-author">Par Johan Janssens</p>
+                <div class="session-content">
+                    <p><strong>TLDR:</strong> Présentation du WASI (Web Assembly System Interface), une interface de programmation qui permet à un module WebAssembly de faire des calls sytems. L'avantage est le développement multi-plateforme (Browser et server) de plugin WebAssembly.</p>
+                </div>
+                <div class="references">
+                    <p><strong>Références:</strong></p>
+                    <ul>
+                        <li><a href="https://wasi.dev/" target="_blank">Documentation WASI</a></li>
+                        <li><a href="https://confoo.ca/fr/2025/session/webassembly-extend-anything-with-everything-everywhere" target="_blank">Fiche du Confoo</a></li>
+                    </ul>
+                </div>
+                <div class="tags-container">
+                    <span class="tag">#WebAssembly</span>
+                    <span class="tag">#WebDev</span>
+                    <span class="tag">#CrossPlatform</span>
+                </div>
+            </div>
+
+            <div class="session-card" data-tags="SystemsThinking,Architecture,Methodology">
+                <h3 class="session-title">Systems Thinking - Concepts to see the whole</h3>
+                <p class="session-author">Par Joel Tosi</p>
+                <div class="session-content">
+                    <p><strong>TLDR:</strong> Une introduction à la pensée systémique et comment elle peut aider les développeurs à mieux comprendre les complexités derrière le développement d'un projet en informatique. Très orienté gestion.</p>
+                </div>
+                <div class="references">
+                    <p><strong>Références:</strong></p>
+                    <ul>
+                        <li><a href="https://www.youtube.com/watch?v=mPaVch77gWo" target="_blank">Version abrégée de la présentation</a></li>
+                        <li><a href="https://confoo.ca/fr/2025/session/systems-thinking-concepts-to-see-the-whole" target="_blank">Fiche du Confoo</a></li>
+                    </ul>
+                </div>
+                <div class="tags-container">
+                    <span class="tag">#SystemsThinking</span>
+                    <span class="tag">#Architecture</span>
+                    <span class="tag">#Methodology</span>
+                </div>
+            </div>
+
+            <div class="session-card" data-tags="HTMX,Alpine,Rust,Hypermedia">
+                <h3 class="session-title">Writing Hypermedia apps with HTMX, Alpine and Rust</h3>
+                <p class="session-author">Par Yagmi Mudumbai</p>
+                <div class="session-content">
+                    <p><strong>TLDR:</strong> Sujet intéressant, mais présentation manquée. Je sais au moins que le HTMX existe. HTMX est une bibliothèque JavaScript qui permet de créer des applications web interactives en utilisant uniquement des attributs HTML.</p>
+                </div>
+                <div class="references">
+                    <p><strong>Références:</strong></p>
+                    <ul>
+                        <li><a href="https://htmx.org/docs/" target="_blank">Documentation HTMX</a></li>
+                        <li><a href="https://confoo.ca/fr/2025/session/writing-hypermedia-apps-with-htmx-alpine-and-rust" target="_blank">Fiche du Confoo</a></li>
+                    </ul>
+                </div>
+                <div class="tags-container">
+                    <span class="tag">#HTMX</span>
+                    <span class="tag">#Alpine</span>
+                    <span class="tag">#Rust</span>
+                    <span class="tag">#Hypermedia</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="day-container">
+        <div class="day-header" id="thursdayHeader">
+            <h2>Jeudi</h2>
+            <span class="toggle-icon">▼</span>
+        </div>
+        <div class="day-content" id="thursdayContent">
+            <div class="session-card" data-tags="HTTP3,QUIC,WebPerformance,NGINX">
+                <h3 class="session-title">QUIC and HTTP/3: the next step in web performance</h3>
+                <p class="session-author">Par Marcus Bointon</p>
+                <div class="session-content">
+                    <p><strong>TLDR:</strong> Présentation des protocoles HTTP/3 et QUIC accompagné d'une démo et d'une configuration avec NGINX.</p>
+                </div>
+                <div class="references">
+                    <p><strong>Références:</strong></p>
+                    <ul>
+                        <li><a href="https://http.dev/3" target="_blank">Documentation HTTP/3</a></li>
+                        <li><a href="https://confoo.ca/fr/2025/session/quic-and-http-3-the-next-step-in-web-performance-1" target="_blank">Fiche du Confoo</a></li>
+                    </ul>
+                </div>
+                <div class="tags-container">
+                    <span class="tag">#HTTP3</span>
+                    <span class="tag">#QUIC</span>
+                    <span class="tag">#WebPerformance</span>
+                    <span class="tag">#NGINX</span>
+                </div>
+            </div>
+
+            <div class="session-card" data-tags="SOLID,React,ComponentComposition,DesignPatterns">
+                <h3 class="session-title">How to apply SOLID pattern to your React Components?</h3>
+                <p class="session-author">Par Thibault Friedrich</p>
+                <div class="session-content">
+                    <p><strong>TLDR:</strong> À principalement illustré diverse façon de faire de la composition en React.</p>
+                </div>
+                <div class="references">
+                    <p><strong>Références:</strong></p>
+                    <ul>
+                        <li><a href="https://www.elvisduru.com/blog/applying-solid-principles-in-react-a-practical-guide" target="_blank">Article récent qui inclut d'autres stratégies dont la composition</a></li>
+                        <li><a href="https://confoo.ca/fr/2025/session/how-to-apply-solid-pattern-to-your-react-components" target="_blank">Fiche du Confoo</a></li>
+                    </ul>
+                </div>
+                <div class="tags-container">
+                    <span class="tag">#SOLID</span>
+                    <span class="tag">#React</span>
+                    <span class="tag">#ComponentComposition</span>
+                    <span class="tag">#DesignPatterns</span>
+                </div>
+            </div>
+
+            <div class="session-card" data-tags="RAG,InformationRetrieval,LLM,KnowledgeBase,AI">
+                <h3 class="session-title">The Future of Information Retrieval: A Deep-Dive into RAG</h3>
+                <p class="session-author">Par Carvana, LLC.</p>
+                <div class="session-content">
+                    <p><strong>TLDR:</strong> Très pertinent et captivant, s'adressant directement aux développeurs. L'objectif de la présentation était d'expliquer les concepts du RAG (Retrieval-Augmented Generation), une méthode permettant d'optimiser un LLM en le connectant à une base de connaissances externe.</p>
+                </div>
+                <div class="references">
+                    <p><strong>Références:</strong></p>
+                    <ul>
+                        <li><a href="https://cognitiveinheritance.com/Posts/simple-linear-regression.html" target="_blank">Article de blogs du présentateur sur le concept de régression linéaire</a></li>
+                        <li><a href="https://m.confoo.ca/en/2025/session/the-future-of-information-retrieval-a-deep-dive-into-rag" target="_blank">Fiche du Confoo</a></li>
+                    </ul>
+                </div>
+                <div class="tags-container">
+                    <span class="tag">#RAG</span>
+                    <span class="tag">#InformationRetrieval</span>
+                    <span class="tag">#LLM</span>
+                    <span class="tag">#KnowledgeBase</span>
+                    <span class="tag">#AI</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="day-container">
+        <div class="day-header" id="fridayHeader">
+            <h2>Vendredi</h2>
+            <span class="toggle-icon">▼</span>
+        </div>
+        <div class="day-content" id="fridayContent">
+            <div class="session-card" data-tags="LLM,KnowledgeBase,AI">
+                <h3 class="session-title">Crafting AI: A Developer's Guide to Machine Learning</h3>
+                <p class="session-author">Par Carvana, LLC.</p>
+                <div class="session-content">
+                    <p><strong>TLDR:</strong> Présentation des concepts de base entourant l'entraînement de modèles d'intelligence artificelle avec un exemple en C#.</p>
+                </div>
+                <div class="references">
+                    <p><strong>Références:</strong></p>
+                    <ul>
+                        <li><a href="https://cognitiveinheritance.com/Posts/simple-linear-regression.html" target="_blank">Article de blogs du présentateur sur le concept de régression linéaire</a></li>
+                        <li><a href="https://confoo.ca/fr/2025/session/crafting-ai-a-developer-s-guide-to-machine-learning" target="_blank">Fiche du Confoo</a></li>
+                    </ul>
+                </div>
+                <div class="tags-container">
+                    <span class="tag">#LLM</span>
+                    <span class="tag">#KnowledgeBase</span>
+                    <span class="tag">#AI</span>
+                </div>
+            </div>
+
+            <div class="session-card" data-tags="ArchitectureLogicielle,Java,DesignPatterns">
+                <h3 class="session-title">Penser comme un (bon) architecte</h3>
+                <p class="session-author">Par Henri Tremblay</p>
+                <div class="session-content">
+                    <p><strong>TLDR:</strong> Explique comment penser comme une senior, mais avec un intérêt très prononcé pour le Java. Super intéressant avec de bonnes références.</p>
+                </div>
+                <div class="references">
+                    <p><strong>Références:</strong></p>
+                    <ul>
+                        <li><a href="https://confoo.ca/fr/2025/session/penser-comme-un-bon-architecte" target="_blank">Fiche du Confoo</a></li>
+                    </ul>
+                </div>
+                <div class="tags-container">
+                    <span class="tag">#ArchitectureLogicielle</span>
+                    <span class="tag">#Java</span>
+                    <span class="tag">#DesignPatterns</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="summary">
+        <p>ConFoo 2025</p>
+    </div>
+</div>
+
+<script>
+    // Toggle day content
+    document.getElementById('wednesdayHeader').addEventListener('click', function() {
+        const content = document.getElementById('wednesdayContent');
+        const icon = this.querySelector('.toggle-icon');
+
+        if (content.style.display === 'none') {
+            content.style.display = 'flex';
+            icon.textContent = '▼';
+        } else {
+            content.style.display = 'none';
+            icon.textContent = '►';
+        }
+    });
+
+    document.getElementById('thursdayHeader').addEventListener('click', function() {
+        const content = document.getElementById('thursdayContent');
+        const icon = this.querySelector('.toggle-icon');
+
+        if (content.style.display === 'none') {
+            content.style.display = 'flex';
+            icon.textContent = '▼';
+        } else {
+            content.style.display = 'none';
+            icon.textContent = '►';
+        }
+    });
+
+    document.getElementById('fridayHeader').addEventListener('click', function() {
+        const content = document.getElementById('fridayContent');
+        const icon = this.querySelector('.toggle-icon');
+
+        if (content.style.display === 'none') {
+            content.style.display = 'flex';
+            icon.textContent = '▼';
+        } else {
+            content.style.display = 'none';
+            icon.textContent = '►';
+        }
+    });
+
+    // Tag filtering
+    const filterTags = document.querySelectorAll('.filter-tag');
+    const sessionCards = document.querySelectorAll('.session-card');
+
+    filterTags.forEach(tag => {
+        tag.addEventListener('click', function() {
+            // Update active state
+            filterTags.forEach(t => t.classList.remove('active'));
+            this.classList.add('active');
+
+            const selectedTag = this.getAttribute('data-tag');
+
+            // Filter cards
+            sessionCards.forEach(card => {
+                const cardTags = card.getAttribute('data-tags').split(',');
+
+                if (selectedTag === 'all' || cardTags.includes(selectedTag)) {
+                    card.style.display = 'block';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        });
+    });
+</script>
+</body>
+</html>
